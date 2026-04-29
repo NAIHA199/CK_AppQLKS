@@ -1,38 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\",
+  "WorkspaceRootPath": "F:\\GitHub\\CK_AppQLKS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\formnhaplieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:formnhaplieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|F:\\GitHub\\CK_AppQLKS\\uc_loaiphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_loaiphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|d:\\ltgdud\\\u0111\u1ED3 \u00E1n cu\u1ED1i k\u1EF3\\ck_appks\\uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|f:\\github\\ck_appqlks\\uc_loaiphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_loaiphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|d:\\ltgdud\\\u0111\u1ED3 \u00E1n cu\u1ED1i k\u1EF3\\ck_appks\\uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|f:\\github\\ck_appqlks\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|d:\\ltgdud\\\u0111\u1ED3 \u00E1n cu\u1ED1i k\u1EF3\\ck_appks\\uc_thephong.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|f:\\github\\ck_appqlks\\uc_thephong.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_thephong.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|F:\\GitHub\\CK_AppQLKS\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|d:\\ltgdud\\\u0111\u1ED3 \u00E1n cu\u1ED1i k\u1EF3\\ck_appks\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|F:\\GitHub\\CK_AppQLKS\\formnhaplieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:formnhaplieu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|f:\\github\\ck_appqlks\\uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|f:\\github\\ck_appqlks\\uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|F:\\GitHub\\CK_AppQLKS\\uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_thephong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|F:\\GitHub\\CK_AppQLKS\\uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F492CD6-6EBC-2526-9650-DA6464AF7870}|CK_AppKS.csproj|solutionrelative:uc_phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,13 +54,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\Form1.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\Form1.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAiwCIAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T21:23:01.831Z",
               "IsPinned": true,
@@ -60,11 +68,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "UC_THEPHONG.Designer.cs",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.Designer.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_THEPHONG.Designer.cs",
               "RelativeDocumentMoniker": "UC_THEPHONG.Designer.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.Designer.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\UC_THEPHONG.Designer.cs",
               "RelativeToolTip": "UC_THEPHONG.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -73,79 +81,99 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormNhapLieu.cs [Design]",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\FormNhapLieu.cs",
-              "RelativeDocumentMoniker": "FormNhapLieu.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\FormNhapLieu.cs [Design]",
-              "RelativeToolTip": "FormNhapLieu.cs [Design]",
+              "Title": "UC_LOAIPHONG.cs [Design]",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_LOAIPHONG.cs",
+              "RelativeDocumentMoniker": "UC_LOAIPHONG.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\UC_LOAIPHONG.cs [Design]",
+              "RelativeToolTip": "UC_LOAIPHONG.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T18:49:07.238Z",
+              "WhenOpened": "2026-04-29T13:23:31.85Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "UC_LOAIPHONG.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_LOAIPHONG.cs",
+              "RelativeDocumentMoniker": "UC_LOAIPHONG.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\UC_LOAIPHONG.cs",
+              "RelativeToolTip": "UC_LOAIPHONG.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAiwL8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T13:02:46.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormNhapLieu.cs [Design]",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\FormNhapLieu.cs",
+              "RelativeDocumentMoniker": "FormNhapLieu.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\FormNhapLieu.cs [Design]",
+              "RelativeToolTip": "FormNhapLieu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T18:49:07.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\Form1.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\Form1.cs [Design]",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T21:20:24.296Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UC_THEPHONG.cs",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_THEPHONG.cs",
               "RelativeDocumentMoniker": "UC_THEPHONG.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\UC_THEPHONG.cs",
               "RelativeToolTip": "UC_THEPHONG.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwBQAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-22T15:59:11.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "UC_THEPHONG.cs [Design]",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_THEPHONG.cs",
               "RelativeDocumentMoniker": "UC_THEPHONG.cs",
               "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_THEPHONG.cs [Design]",
-              "RelativeToolTip": "UC_THEPHONG.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-22T17:18:31.283Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "UC_PHONG.cs [Design]",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_PHONG.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_PHONG.cs",
               "RelativeDocumentMoniker": "UC_PHONG.cs",
               "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_PHONG.cs [Design]",
-              "RelativeToolTip": "UC_PHONG.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T16:21:56.778Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-04-22T16:21:56.778Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "UC_PHONG.cs",
-              "DocumentMoniker": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_PHONG.cs",
+              "DocumentMoniker": "F:\\GitHub\\CK_AppQLKS\\UC_PHONG.cs",
               "RelativeDocumentMoniker": "UC_PHONG.cs",
-              "ToolTip": "D:\\LTGDUD\\\u0110\u1ED3 \u00C1n Cu\u1ED1i K\u1EF3\\CK_AppKS\\UC_PHONG.cs",
+              "ToolTip": "F:\\GitHub\\CK_AppQLKS\\UC_PHONG.cs",
               "RelativeToolTip": "UC_PHONG.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAA4wB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T21:31:00.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-21T21:31:00.553Z"
             }
           ]
         }

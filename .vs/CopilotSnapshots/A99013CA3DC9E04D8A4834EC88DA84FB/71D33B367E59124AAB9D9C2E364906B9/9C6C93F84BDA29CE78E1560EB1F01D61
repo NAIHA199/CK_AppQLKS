@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace CK_AppKS
+{
+    public partial class UC_LOAIPHONG : UserControl
+    {
+        public UC_LOAIPHONG()
+        {
+            InitializeComponent();
+        }
+
+        private void UC_LOAIPHONG_Load(object sender, EventArgs e)
+        {
+            // Load dữ liệu loại phòng từ database vào DataGridView
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            // Thêm loại phòng mới vào database
+            // Lấy dữ liệu từ: txtSoPhong, numericUpDownDonGia, cbLoaiPhong
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            // Xóa loại phòng được chọn
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            // Sửa thông tin loại phòng được chọn
+        }
+    }
+}

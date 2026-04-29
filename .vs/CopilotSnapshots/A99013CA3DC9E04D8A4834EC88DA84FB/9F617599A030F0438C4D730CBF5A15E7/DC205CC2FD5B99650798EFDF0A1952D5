@@ -1,0 +1,142 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace CK_AppKS
+{
+    public partial class UC_LOAIPHONG : UserControl
+    {
+        private string selectedLoaiPhong = "Đơn"; // Mặc định là "Đơn"
+
+        public UC_LOAIPHONG()
+        {
+            InitializeComponent();
+        }
+
+        private void UC_LOAIPHONG_Load(object sender, EventArgs e)
+        {
+            // Khởi tạo loại phòng mặc định
+            selectedLoaiPhong = "Đơn";
+            UpdatePreview();
+        }
+
+        // Cập nhật preview khi thay đổi loại phòng hoặc đơn giá
+        private void UpdatePreview()
+        {
+            if (string.IsNullOrEmpty(txtDonGia.Text))
+            {
+                lblPreview.Text = "Tham khảo";
+                lblPreviewGia.Text = "0 đ";
+            }
+            else
+            {
+                lblPreview.Text = $"Tham khảo (Phòng {selectedLoaiPhong})";
+                lblPreviewGia.Text = txtDonGia.Text + " đ";
+            }
+        }
+
+        // Xử lý click nút Đơn
+        private void btnDon_Click(object sender, EventArgs e)
+        {
+            selectedLoaiPhong = "Đơn";
+            // Đổi màu nút được chọn thành xanh
+            btnDon.BackColor = Color.FromArgb(30, 120, 200);
+            btnDoi.BackColor = Color.FromArgb(51, 51, 51);
+            btnVip.BackColor = Color.FromArgb(51, 51, 51);
+            UpdatePreview();
+        }
+
+        // Xử lý click nút Đôi
+        private void btnDoi_Click(object sender, EventArgs e)
+        {
+            selectedLoaiPhong = "Đôi";
+            btnDoi.BackColor = Color.FromArgb(30, 120, 200);
+            btnDon.BackColor = Color.FromArgb(51, 51, 51);
+            btnVip.BackColor = Color.FromArgb(51, 51, 51);
+            UpdatePreview();
+        }
+
+        // Xử lý click nút VIP
+        private void btnVip_Click(object sender, EventArgs e)
+        {
+            selectedLoaiPhong = "Vip";
+            btnVip.BackColor = Color.FromArgb(30, 120, 200);
+            btnDon.BackColor = Color.FromArgb(51, 51, 51);
+            btnDoi.BackColor = Color.FromArgb(51, 51, 51);
+            UpdatePreview();
+        }
+
+        // Xử lý thay đổi đơn giá
+        private void txtDonGia_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePreview();
+        }
+
+        // Xử lý click nút Thêm
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSoPhong.Text) || string.IsNullOrWhiteSpace(txtDonGia.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // TODO: Lưu vào database
+            MessageBox.Show($"Thêm thành công!\nSố phòng: {txtSoPhong.Text}\nLoại: {selectedLoaiPhong}\nĐơn giá: {txtDonGia.Text}", "Thông báo");
+            ClearForm();
+        }
+
+        // Xử lý click nút Sửa
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSoPhong.Text))
+            {
+                MessageBox.Show("Vui lòng chọn phòng để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // TODO: Cập nhật database
+            MessageBox.Show("Cập nhật thành công!", "Thông báo");
+        }
+
+        // Xử lý click nút Xóa
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSoPhong.Text))
+            {
+                MessageBox.Show("Vui lòng chọn phòng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // TODO: Xóa từ database
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                ClearForm();
+            }
+        }
+
+        // Xử lý click nút Làm (Reset)
+        private void btnLam_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        // Làm sạch form
+        private void ClearForm()
+        {
+            txtSoPhong.Clear();
+            txtDonGia.Clear();
+            selectedLoaiPhong = "Đơn";
+            btnDon.BackColor = Color.FromArgb(30, 120, 200);
+            btnDoi.BackColor = Color.FromArgb(51, 51, 51);
+            btnVip.BackColor = Color.FromArgb(51, 51, 51);
+            UpdatePreview();
+        }
+    }
+}

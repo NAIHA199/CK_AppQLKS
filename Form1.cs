@@ -45,7 +45,7 @@ namespace CK_AppKS
             pnlMain.Controls.Add(uc);
         }
 
-                
+
 
         private void btnphong_Click_1(object sender, EventArgs e)
         {
@@ -53,10 +53,23 @@ namespace CK_AppKS
             UC_PHONG screen = new UC_PHONG();
             screen.Dock = DockStyle.Fill;
 
-            
+
             screen.DoTheVaoPhong();
 
             pnlMain.Controls.Add(screen);
+        }
+
+        private void btnqlloaiphong_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            var uc = new UC_LOAIPHONG();
+            uc.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uc);
+        }
+
+        private void btnhoadon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

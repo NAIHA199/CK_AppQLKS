@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CK_AppKS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca0542578280ad725c011355045b5e5b2fa1e62e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CK_AppKS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CK_AppKS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

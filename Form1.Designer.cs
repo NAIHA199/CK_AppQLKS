@@ -172,6 +172,7 @@
             btnqlloaiphong.Text = "QL LOẠI PHÒNG";
             btnqlloaiphong.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnqlloaiphong.UseVisualStyleBackColor = true;
+            btnqlloaiphong.Click += btnqlloaiphong_Click;
             // 
             // btnhoadon
             // 
@@ -185,6 +186,7 @@
             btnhoadon.Text = "QL HÓA ĐƠN";
             btnhoadon.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnhoadon.UseVisualStyleBackColor = true;
+            btnhoadon.Click += btnhoadon_Click;
             // 
             // btnbaocao
             // 

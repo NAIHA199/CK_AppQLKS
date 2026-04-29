@@ -22,3 +22,29 @@ D:\LTGDUD\Đồ Án Cuối Kỳ\CK_AppKS\obj\Debug\net10.0-windows\CK_AppKS.UC_P
 D:\LTGDUD\Đồ Án Cuối Kỳ\CK_AppKS\obj\Debug\net10.0-windows\CK_AppKS.UC_THEPHONG.resources
 D:\LTGDUD\Đồ Án Cuối Kỳ\CK_AppKS\obj\Debug\net10.0-windows\CK_AppKS.Properties.Resources.resources
 D:\LTGDUD\Đồ Án Cuối Kỳ\CK_AppKS\obj\Debug\net10.0-windows\CK_AppKS.FormNhapLieu.resources
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\CK_AppKS.exe
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\CK_AppKS.deps.json
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\CK_AppKS.runtimeconfig.json
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\CK_AppKS.dll
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\CK_AppKS.pdb
+F:\GitHub\CK_AppQLKS\bin\Debug\net10.0-windows\RJCodeAdance.RJControls.dll
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.csproj.AssemblyReference.cache
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.Form1.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.FormNhapLieu.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.Properties.Resources.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.UC_KHACHHANG.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.UC_PHONG.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.UC_THEPHONG.resources
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.csproj.GenerateResource.cache
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.GeneratedMSBuildEditorConfig.editorconfig
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.AssemblyInfoInputs.cache
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.AssemblyInfo.cs
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.csproj.CoreCompileInputs.cache
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.sourcelink.json
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.csproj.Up2Date
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.dll
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\refint\CK_AppKS.dll
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.pdb
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.genruntimeconfig.cache
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\ref\CK_AppKS.dll
+F:\GitHub\CK_AppQLKS\obj\Debug\net10.0-windows\CK_AppKS.UC_LOAIPHONG.resources
