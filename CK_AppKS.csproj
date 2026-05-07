@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="RJCodeAdvance.RJControl2s" Version="1.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -91,7 +91,7 @@
             lblGroupOpen.ForeColor = Color.Gray;
             lblGroupOpen.Location = new Point(3, 0);
             lblGroupOpen.Name = "lblGroupOpen";
-            lblGroupOpen.Size = new Size(57, 23);
+            lblGroupOpen.Size = new Size(48, 19);
             lblGroupOpen.TabIndex = 0;
             lblGroupOpen.Text = "OPEN";
             // 
@@ -100,7 +100,7 @@
             btnphong.FlatAppearance.BorderSize = 0;
             btnphong.FlatStyle = FlatStyle.Flat;
             btnphong.ImageAlign = ContentAlignment.MiddleLeft;
-            btnphong.Location = new Point(3, 26);
+            btnphong.Location = new Point(3, 22);
             btnphong.Name = "btnphong";
             btnphong.Size = new Size(240, 50);
             btnphong.TabIndex = 11;
@@ -114,20 +114,21 @@
             btndatphong.FlatAppearance.BorderSize = 0;
             btndatphong.FlatStyle = FlatStyle.Flat;
             btndatphong.ImageAlign = ContentAlignment.MiddleLeft;
-            btndatphong.Location = new Point(3, 82);
+            btndatphong.Location = new Point(3, 78);
             btndatphong.Name = "btndatphong";
             btndatphong.Size = new Size(240, 50);
             btndatphong.TabIndex = 12;
             btndatphong.Text = "ĐẶT PHÒNG";
             btndatphong.TextImageRelation = TextImageRelation.TextBeforeImage;
             btndatphong.UseVisualStyleBackColor = true;
+            btndatphong.Click += btndatphong_Click;
             // 
             // btnkhachhang
             // 
             btnkhachhang.FlatAppearance.BorderSize = 0;
             btnkhachhang.FlatStyle = FlatStyle.Flat;
             btnkhachhang.ImageAlign = ContentAlignment.MiddleLeft;
-            btnkhachhang.Location = new Point(3, 138);
+            btnkhachhang.Location = new Point(3, 134);
             btnkhachhang.Name = "btnkhachhang";
             btnkhachhang.Size = new Size(240, 50);
             btnkhachhang.TabIndex = 13;
@@ -141,9 +142,9 @@
             lblGroupManager.AutoSize = true;
             lblGroupManager.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGroupManager.ForeColor = Color.Gray;
-            lblGroupManager.Location = new Point(3, 191);
+            lblGroupManager.Location = new Point(3, 187);
             lblGroupManager.Name = "lblGroupManager";
-            lblGroupManager.Size = new Size(100, 23);
+            lblGroupManager.Size = new Size(84, 19);
             lblGroupManager.TabIndex = 4;
             lblGroupManager.Text = "MANAGER";
             // 
@@ -152,7 +153,7 @@
             btnqlphong.FlatAppearance.BorderSize = 0;
             btnqlphong.FlatStyle = FlatStyle.Flat;
             btnqlphong.ImageAlign = ContentAlignment.MiddleLeft;
-            btnqlphong.Location = new Point(3, 217);
+            btnqlphong.Location = new Point(3, 209);
             btnqlphong.Name = "btnqlphong";
             btnqlphong.Size = new Size(240, 50);
             btnqlphong.TabIndex = 14;
@@ -165,7 +166,7 @@
             btnqlloaiphong.FlatAppearance.BorderSize = 0;
             btnqlloaiphong.FlatStyle = FlatStyle.Flat;
             btnqlloaiphong.ImageAlign = ContentAlignment.MiddleLeft;
-            btnqlloaiphong.Location = new Point(3, 273);
+            btnqlloaiphong.Location = new Point(3, 265);
             btnqlloaiphong.Name = "btnqlloaiphong";
             btnqlloaiphong.Size = new Size(240, 50);
             btnqlloaiphong.TabIndex = 15;
@@ -179,7 +180,7 @@
             btnhoadon.FlatAppearance.BorderSize = 0;
             btnhoadon.FlatStyle = FlatStyle.Flat;
             btnhoadon.ImageAlign = ContentAlignment.MiddleLeft;
-            btnhoadon.Location = new Point(3, 329);
+            btnhoadon.Location = new Point(3, 321);
             btnhoadon.Name = "btnhoadon";
             btnhoadon.Size = new Size(240, 50);
             btnhoadon.TabIndex = 16;
@@ -193,7 +194,7 @@
             btnbaocao.FlatAppearance.BorderSize = 0;
             btnbaocao.FlatStyle = FlatStyle.Flat;
             btnbaocao.ImageAlign = ContentAlignment.MiddleLeft;
-            btnbaocao.Location = new Point(3, 385);
+            btnbaocao.Location = new Point(3, 377);
             btnbaocao.Name = "btnbaocao";
             btnbaocao.Size = new Size(240, 50);
             btnbaocao.TabIndex = 17;
@@ -206,9 +207,9 @@
             lblGroupClose.AutoSize = true;
             lblGroupClose.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGroupClose.ForeColor = Color.Gray;
-            lblGroupClose.Location = new Point(3, 438);
+            lblGroupClose.Location = new Point(3, 430);
             lblGroupClose.Name = "lblGroupClose";
-            lblGroupClose.Size = new Size(62, 23);
+            lblGroupClose.Size = new Size(53, 19);
             lblGroupClose.TabIndex = 10;
             lblGroupClose.Text = "CLOSE";
             // 
@@ -217,7 +218,7 @@
             btntaikhoan.FlatAppearance.BorderSize = 0;
             btntaikhoan.FlatStyle = FlatStyle.Flat;
             btntaikhoan.ImageAlign = ContentAlignment.MiddleLeft;
-            btntaikhoan.Location = new Point(3, 464);
+            btntaikhoan.Location = new Point(3, 452);
             btntaikhoan.Name = "btntaikhoan";
             btntaikhoan.Size = new Size(240, 50);
             btntaikhoan.TabIndex = 18;
@@ -230,7 +231,7 @@
             btndangxuat.FlatAppearance.BorderSize = 0;
             btndangxuat.FlatStyle = FlatStyle.Flat;
             btndangxuat.ImageAlign = ContentAlignment.MiddleLeft;
-            btndangxuat.Location = new Point(3, 520);
+            btndangxuat.Location = new Point(3, 508);
             btndangxuat.Name = "btndangxuat";
             btndangxuat.Size = new Size(240, 50);
             btndangxuat.TabIndex = 19;
@@ -243,7 +244,7 @@
             btnthoat.FlatAppearance.BorderSize = 0;
             btnthoat.FlatStyle = FlatStyle.Flat;
             btnthoat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnthoat.Location = new Point(3, 576);
+            btnthoat.Location = new Point(3, 564);
             btnthoat.Name = "btnthoat";
             btnthoat.Size = new Size(240, 50);
             btnthoat.TabIndex = 20;
@@ -267,7 +268,7 @@
             lblTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.Location = new Point(25, 13);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(286, 31);
+            lblTitle.Size = new Size(239, 25);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "DANH MỤC CHỨC NĂNG";
             // 
@@ -282,7 +283,7 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1478, 866);
             Controls.Add(pnlMain);

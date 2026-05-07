@@ -15,42 +15,54 @@ namespace CK_AppKS
             InitializeComponent();
         }
 
-
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void flpDanhSach_Paint(object sender, PaintEventArgs e)
         {
-
         }
+
+        // Hiển thị danh sách phòng từ database
         public void DoTheVaoPhong()
         {
             flpDanhSach.Controls.Clear();
 
-            for (int i = 1; i <= 20; i++)
+            // Lấy dữ liệu phòng từ database
+            string sql = @"SELECT p.MaPhong, p.TenPhong, lp.TenLoaiPhong, p.TinhTrang, lp.DonGia
+                            FROM dbo.Phong p
+                            LEFT JOIN dbo.LoaiPhong lp ON p.MaLoaiPhong = lp.MaLoaiPhong
+                            ORDER BY p.MaPhong";
+            DataTable dt = DataProvider.TruyVan_LayDuLieu(sql);
+
+            if (dt == null || dt.Rows.Count == 0)
+                return;
+
+            foreach (DataRow row in dt.Rows)
             {
+                string soPhong = row["TenPhong"]?.ToString() ?? "";
+                string loaiPhong = row["TenLoaiPhong"]?.ToString() ?? "";
+                string tinhTrang = row["TinhTrang"]?.ToString() ?? "";
+                long donGia = 0;
+                long.TryParse(row["DonGia"]?.ToString() ?? "0", out donGia);
+
+                // Trạng thái: true = đã đặt, false = trống
+                bool isDaDat = tinhTrang == "Đã Đặt";
+
                 UC_THEPHONG the = new UC_THEPHONG();
-                the.NapDuLieu("10" + i, (i % 2 != 0) ? "PHÒNG ĐƠN" : "PHÒNG ĐÔI", (i % 5 == 0));
+                the.NapDuLieu(soPhong, loaiPhong, isDaDat, donGia);
                 the.Margin = new Padding(10);
 
-                // --- BẮT ĐẦU PHẦN QUAN TRỌNG ---
-                // 1. Gán sự kiện Click cho chính cái thẻ
+                // Gán sự kiện Click cho chính cái thẻ
                 the.Click += new EventHandler(ThePhong_Click);
-
-                // 2. Gán sự kiện Click cho tất cả các Label bên trong thẻ 
-                // (Để khi khách bấm trúng chữ "Phòng" hay "Giá" thì nó vẫn hiểu là đang bấm vào thẻ)
                 foreach (Control c in the.Controls)
                 {
                     c.Click += new EventHandler(ThePhong_Click);
                 }
-                // --- KẾT THÚC PHẦN QUAN TRỌNG ---
-
                 flpDanhSach.Controls.Add(the);
             }
         }
+
         private void ThePhong_Click(object? sender, EventArgs e)
         {
             if (sender == null) return;
@@ -66,10 +78,7 @@ namespace CK_AppKS
 
             if (theGoc != null)
             {
-                // Sử dụng tên chính xác bạn đã đặt cho Label
                 string tenPhong = theGoc.lblTenPhong.Text;
-
-                // Đảm bảo FormNhapLieu là một FORM, không phải User Control
                 using (FormNhapLieu f = new FormNhapLieu())
                 {
                     f.Text = "Cập nhật cho " + tenPhong;

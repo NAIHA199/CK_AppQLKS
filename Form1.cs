@@ -71,5 +71,14 @@ namespace CK_AppKS
         {
 
         }
+
+        private void btndatphong_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            var uc = new UC_DatPhong();
+            uc.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uc);
+
+        }
     }
 }

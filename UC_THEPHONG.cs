@@ -16,7 +16,7 @@ namespace CK_AppKS
         }
 
         // Hàm này giúp thẻ tự thay đổi nội dung khi được gọi
-        public void NapDuLieu(string soPhong, string loai, bool coKhach)
+        public void NapDuLieu(string soPhong, string loai, bool coKhach, long donGia)
         {
             lblTenPhong.Text = "Phòng: " + soPhong;
             lblLoaiPhong.Text = "Loại: " + loai;
