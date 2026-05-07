@@ -69,7 +69,10 @@ namespace CK_AppKS
 
         private void btnhoadon_Click(object sender, EventArgs e)
         {
-
+            pnlMain.Controls.Clear();
+            var uc = new CK_AppQLKS.UC_HoaDon();
+            uc.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uc);
         }
     }
 }
