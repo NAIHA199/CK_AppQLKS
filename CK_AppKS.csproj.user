@@ -16,6 +16,9 @@
     <Compile Update="UC_PHONG.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UC_QLPHONG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UC_THEPHONG.cs">
       <SubType>UserControl</SubType>
     </Compile>

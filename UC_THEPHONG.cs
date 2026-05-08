@@ -16,15 +16,16 @@ namespace CK_AppKS
         }
 
         // Hàm này giúp thẻ tự thay đổi nội dung khi được gọi
-        public void NapDuLieu(string soPhong, string loai, bool coKhach)
+        public void NapDuLieu(string soPhong, string loai, bool coKhach, decimal donGia = 0)
         {
             lblTenPhong.Text = "Phòng: " + soPhong;
             lblLoaiPhong.Text = "Loại: " + loai;
 
-            // Áp dụng đúng Quy định 1 (QĐ1)
-            if (loai == "PHÒNG ĐƠN") lblGia.Text = "Giá: 150.000";
-            else if (loai == "PHÒNG ĐÔI") lblGia.Text = "Giá: 170.000";
-            else lblGia.Text = "Giá: 200.000";
+            // Nếu có giá từ database, sử dụng giá đó. Nếu không thì dùng giá mặc định
+            if (donGia > 0)
+                lblGia.Text = "Giá: " + donGia.ToString("N0");
+            else
+                lblGia.Text = "Giá: 200.000";
 
             // Thay đổi màu sắc dựa trên trạng thái
             if (coKhach)

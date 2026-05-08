@@ -148,6 +148,7 @@
             Controls.Add(textBox1);
             Name = "FormNhapLieu";
             Text = "FormNhapLieu";
+            Load += new System.EventHandler(FormNhapLieu_Load);
             ResumeLayout(false);
             PerformLayout();
         }

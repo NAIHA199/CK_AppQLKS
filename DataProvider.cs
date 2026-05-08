@@ -11,7 +11,7 @@ public class DataProvider
 {
     public static string ChuoiKetNoi
     {
-        get { return @"Data Source=.;Initial Catalog=QuanLyKhachSan;Integrated Security=True"; }
+        get { return @"Data Source=.\SQL2025;Initial Catalog=QLKS;Integrated Security=True"; }
     }
     public static bool TruyVan_XuLy(string sql)
     {

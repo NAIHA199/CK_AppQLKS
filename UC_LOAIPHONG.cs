@@ -1,19 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CK_AppKS
 {
     public partial class UC_LOAIPHONG : UserControl
     {
-        private string selectedLoaiPhong = "Đơn";
-
-        // Danh sách lưu tạm trong RAM (sau này thay bằng database)
-        private List<(string SoPhong, string LoaiPhong, long DonGia)> danhSach = new();
+        // Chuỗi kết nối Database của bạn (nhớ sửa lại nếu cần)
+        private string connectionString = @"Data Source=.\SQL2025;Initial Catalog=QLKS;Integrated Security=True";
 
         public UC_LOAIPHONG()
         {
@@ -22,22 +19,15 @@ namespace CK_AppKS
 
         private void UC_LOAIPHONG_Load(object sender, EventArgs e)
         {
-            selectedLoaiPhong = "Đơn";
-            UpdateChipStyle();
             UpdatePreview();
             SetupColumns();
-            LoadDataGridView();
+            LoadDataGridView(); // Lấy dữ liệu từ SQL khi form load
         }
 
         // ── Cột DataGridView ─────────────────────────────────────
         private void SetupColumns()
         {
             dvgLoaiPhong.Columns.Clear();
-
-            var colSoPhong = new DataGridViewTextBoxColumn();
-            colSoPhong.Name = "SoPhong";
-            colSoPhong.HeaderText = "SỐ PHÒNG";
-            colSoPhong.Width = 180;
 
             var colLoaiPhong = new DataGridViewTextBoxColumn();
             colLoaiPhong.Name = "LoaiPhong";
@@ -50,39 +40,45 @@ namespace CK_AppKS
             colDonGia.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             colDonGia.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            dvgLoaiPhong.Columns.AddRange(colSoPhong, colLoaiPhong, colDonGia);
+            dvgLoaiPhong.Columns.AddRange(colLoaiPhong, colDonGia);
         }
 
-        // ── Tải dữ liệu vào grid ─────────────────────────────────
+        // ── Tải dữ liệu từ SQL vào grid ──────────────────────────
         private void LoadDataGridView()
         {
             dvgLoaiPhong.Rows.Clear();
-            foreach (var item in danhSach)
-                dvgLoaiPhong.Rows.Add(item.SoPhong, item.LoaiPhong, $"{item.DonGia:N0} đ");
-        }
+            string query = "SELECT LoaiPhong, DonGia FROM LOAIPHONG"; // Thay đổi tên bảng/cột nếu cần
 
-        // ── Chip loại phòng ──────────────────────────────────────
-        private void UpdateChipStyle()
-        {
-            Color active = Color.FromArgb(30, 120, 200);
-            Color inactive = SystemColors.ButtonFace;
-
-            btnDon.BackColor = selectedLoaiPhong == "Đơn" ? active : inactive;
-            btnDon.ForeColor = selectedLoaiPhong == "Đơn" ? Color.White : SystemColors.ControlText;
-            btnDon.UseVisualStyleBackColor = selectedLoaiPhong != "Đơn";
-
-            btnDoi.BackColor = selectedLoaiPhong == "Đôi" ? active : inactive;
-            btnDoi.ForeColor = selectedLoaiPhong == "Đôi" ? Color.White : SystemColors.ControlText;
-            btnDoi.UseVisualStyleBackColor = selectedLoaiPhong != "Đôi";
-
-            btnVip.BackColor = selectedLoaiPhong == "Vip" ? active : inactive;
-            btnVip.ForeColor = selectedLoaiPhong == "Vip" ? Color.White : SystemColors.ControlText;
-            btnVip.UseVisualStyleBackColor = selectedLoaiPhong != "Vip";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string loai = reader["LoaiPhong"].ToString();
+                                long gia = Convert.ToInt64(reader["DonGia"]);
+                                dvgLoaiPhong.Rows.Add(loai, $"{gia:N0} đ");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi tải dữ liệu từ Database: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         // ── Preview giá tham khảo ────────────────────────────────
         private void UpdatePreview()
         {
+            string loaiPhong = string.IsNullOrWhiteSpace(txtLoaiPhong.Text) ? "..." : txtLoaiPhong.Text.Trim();
+
             if (string.IsNullOrWhiteSpace(txtDonGia.Text))
             {
                 lblPreview.Text = "Tham khảo";
@@ -90,31 +86,9 @@ namespace CK_AppKS
             }
             else
             {
-                lblPreview.Text = $"Tham khảo (Phòng {selectedLoaiPhong})";
+                lblPreview.Text = $"Tham khảo (Phòng {loaiPhong})";
                 lblPreviewGia.Text = txtDonGia.Text.Trim() + " đ";
             }
-        }
-
-        // ── Sự kiện chip ─────────────────────────────────────────
-        private void btnDon_Click(object sender, EventArgs e)
-        {
-            selectedLoaiPhong = "Đơn";
-            UpdateChipStyle();
-            UpdatePreview();
-        }
-
-        private void btnDoi_Click(object sender, EventArgs e)
-        {
-            selectedLoaiPhong = "Đôi";
-            UpdateChipStyle();
-            UpdatePreview();
-        }
-
-        private void btnVip_Click(object sender, EventArgs e)
-        {
-            selectedLoaiPhong = "Vip";
-            UpdateChipStyle();
-            UpdatePreview();
         }
 
         private void txtDonGia_TextChanged(object sender, EventArgs e)
@@ -122,97 +96,151 @@ namespace CK_AppKS
             UpdatePreview();
         }
 
-        // ── Thêm ─────────────────────────────────────────────────
+        // Nếu bạn muốn preview cập nhật cả khi gõ loại phòng, hãy gán event TextChanged của txtLoaiPhong vào đây
+        private void txtLoaiPhong_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePreview();
+        }
+
+        // ── Thêm loại phòng vào SQL ──────────────────────────────
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string soPhong = txtSoPhong.Text.Trim();
+            string loaiPhong = txtLoaiPhong.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(soPhong))
+            if (string.IsNullOrEmpty(loaiPhong))
             {
-                MessageBox.Show("Vui lòng nhập số phòng!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSoPhong.Focus();
+                MessageBox.Show("Vui lòng nhập Loại Phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLoaiPhong.Focus();
                 return;
             }
 
             if (!long.TryParse(txtDonGia.Text.Trim().Replace(",", "").Replace(".", ""), out long donGia) || donGia <= 0)
             {
-                MessageBox.Show("Đơn giá không hợp lệ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Đơn giá không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDonGia.Focus();
                 return;
             }
 
-            // Kiểm tra trùng số phòng
-            if (danhSach.Exists(x => x.SoPhong.Equals(soPhong, StringComparison.OrdinalIgnoreCase)))
-            {
-                MessageBox.Show($"Số phòng {soPhong} đã tồn tại!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string query = "INSERT INTO LOAIPHONG (LoaiPhong, DonGia) VALUES (@LoaiPhong, @DonGia)";
 
-            danhSach.Add((soPhong, selectedLoaiPhong, donGia));
-            MessageBox.Show($"Thêm phòng {soPhong} thành công!", "Thông báo",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ClearForm();
-            LoadDataGridView();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@LoaiPhong", loaiPhong);
+                    cmd.Parameters.AddWithValue("@DonGia", donGia);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show($"Thêm loại phòng '{loaiPhong}' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ClearForm();
+                        LoadDataGridView(); // Tải lại grid
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        if (sqlEx.Number == 2627) // Lỗi trùng khóa chính
+                            MessageBox.Show($"Loại phòng '{loaiPhong}' đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        else
+                            MessageBox.Show("Lỗi Database: " + sqlEx.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-        // ── Sửa ──────────────────────────────────────────────────
+        // ── Sửa loại phòng trong SQL ─────────────────────────────
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string soPhong = txtSoPhong.Text.Trim();
-            if (string.IsNullOrWhiteSpace(soPhong))
+            string loaiPhong = txtLoaiPhong.Text.Trim();
+
+            if (string.IsNullOrEmpty(loaiPhong))
             {
-                MessageBox.Show("Vui lòng chọn phòng cần sửa!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập/chọn Loại Phòng cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!long.TryParse(txtDonGia.Text.Trim().Replace(",", "").Replace(".", ""), out long donGia) || donGia <= 0)
             {
-                MessageBox.Show("Đơn giá không hợp lệ!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Đơn giá không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDonGia.Focus();
                 return;
             }
 
-            int idx = danhSach.FindIndex(x => x.SoPhong.Equals(soPhong, StringComparison.OrdinalIgnoreCase));
-            if (idx < 0)
-            {
-                MessageBox.Show("Không tìm thấy phòng để sửa!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string query = "UPDATE LOAIPHONG SET DonGia = @DonGia WHERE LoaiPhong = @LoaiPhong";
 
-            danhSach[idx] = (soPhong, selectedLoaiPhong, donGia);
-            MessageBox.Show("Cập nhật thành công!", "Thông báo",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadDataGridView();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@DonGia", donGia);
+                    cmd.Parameters.AddWithValue("@LoaiPhong", loaiPhong);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy loại phòng này để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-        // ── Xóa ──────────────────────────────────────────────────
+        // ── Xóa loại phòng khỏi SQL ──────────────────────────────
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string soPhong = txtSoPhong.Text.Trim();
-            if (string.IsNullOrWhiteSpace(soPhong))
+            string loaiPhong = txtLoaiPhong.Text.Trim();
+
+            if (string.IsNullOrEmpty(loaiPhong))
             {
-                MessageBox.Show("Vui lòng chọn phòng cần xóa!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập/chọn Loại Phòng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var confirm = MessageBox.Show($"Xác nhận xóa phòng {soPhong}?", "Xác nhận",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirm = MessageBox.Show($"Xác nhận xóa loại phòng '{loaiPhong}'?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confirm != DialogResult.Yes) return;
 
-            int removed = danhSach.RemoveAll(x => x.SoPhong.Equals(soPhong, StringComparison.OrdinalIgnoreCase));
-            if (removed > 0)
+            string query = "DELETE FROM LOAIPHONG WHERE LoaiPhong = @LoaiPhong";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Xóa thành công!", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearForm();
-                LoadDataGridView();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@LoaiPhong", loaiPhong);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearForm();
+                            LoadDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy loại phòng này để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xóa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -228,35 +256,26 @@ namespace CK_AppKS
             if (e.RowIndex < 0) return;
             var row = dvgLoaiPhong.Rows[e.RowIndex];
 
-            txtSoPhong.Text = row.Cells["SoPhong"].Value?.ToString() ?? "";
-            selectedLoaiPhong = row.Cells["LoaiPhong"].Value?.ToString() ?? "Đơn";
+            // Lấy tên loại phòng và đơn giá từ DataGridView đẩy ngược lên TextBox
+            txtLoaiPhong.Text = row.Cells["LoaiPhong"].Value?.ToString() ?? "";
 
-            // Lấy đơn giá dạng số (bỏ " đ" và dấu phẩy)
             string giaRaw = row.Cells["DonGia"].Value?.ToString() ?? "";
-            txtDonGia.Text = giaRaw.Replace(" đ", "").Replace(",", "").Trim();
+            txtDonGia.Text = giaRaw.Replace(" đ", "").Replace(",", "").Replace(".", "").Trim();
 
-            UpdateChipStyle();
             UpdatePreview();
         }
 
         // ── Xóa form ─────────────────────────────────────────────
         private void ClearForm()
         {
-            txtSoPhong.Clear();
+            txtLoaiPhong.Clear();
             txtDonGia.Clear();
-            selectedLoaiPhong = "Đơn";
-            UpdateChipStyle();
+            txtLoaiPhong.Focus();
             UpdatePreview();
         }
 
-        private void lblSoPhong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoPhong_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void lblSoPhong_Click(object sender, EventArgs e) { }
+        private void txtSoPhong_TextChanged(object sender, EventArgs e) { }
+        private void dvgLoaiPhong_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }

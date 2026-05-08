@@ -159,6 +159,7 @@
             btnqlphong.Text = "QL PHÒNG";
             btnqlphong.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnqlphong.UseVisualStyleBackColor = true;
+            btnqlphong.Click += btnqlphong_Click;
             // 
             // btnqlloaiphong
             // 

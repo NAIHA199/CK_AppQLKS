@@ -59,6 +59,14 @@ namespace CK_AppKS
             pnlMain.Controls.Add(screen);
         }
 
+        private void btnqlphong_Click(object sender, EventArgs e)
+        {
+            pnlMain.Controls.Clear();
+            var uc = new UC_QUANLYP();
+            uc.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(uc);
+        }
+
         private void btnqlloaiphong_Click(object sender, EventArgs e)
         {
             pnlMain.Controls.Clear();

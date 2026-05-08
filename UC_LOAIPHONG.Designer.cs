@@ -19,14 +19,9 @@ namespace CK_AppKS
             dvgLoaiPhong = new DataGridView();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
-            lblSoPhong = new Label();
-            txtSoPhong = new TextBox();
             lblDonGia = new Label();
             txtDonGia = new TextBox();
             lblLoaiPhong = new Label();
-            btnDon = new Button();
-            btnDoi = new Button();
-            btnVip = new Button();
             pnlPreview = new Panel();
             lblPreview = new Label();
             lblPreviewGia = new Label();
@@ -34,6 +29,7 @@ namespace CK_AppKS
             btnSua = new Button();
             btnxoa = new Button();
             btnMoi = new Button();
+            txtLoaiPhong = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgLoaiPhong).BeginInit();
             panel2.SuspendLayout();
@@ -65,6 +61,7 @@ namespace CK_AppKS
             dvgLoaiPhong.Size = new Size(765, 280);
             dvgLoaiPhong.TabIndex = 0;
             dvgLoaiPhong.CellClick += dvgLoaiPhong_CellClick;
+            dvgLoaiPhong.CellContentClick += dvgLoaiPhong_CellContentClick;
             // 
             // panel2
             // 
@@ -76,19 +73,15 @@ namespace CK_AppKS
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(765, 571);
+            panel2.Size = new Size(765, 532);
             panel2.TabIndex = 1;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(lblSoPhong);
-            groupBox1.Controls.Add(txtSoPhong);
+            groupBox1.Controls.Add(txtLoaiPhong);
             groupBox1.Controls.Add(lblDonGia);
             groupBox1.Controls.Add(txtDonGia);
             groupBox1.Controls.Add(lblLoaiPhong);
-            groupBox1.Controls.Add(btnDon);
-            groupBox1.Controls.Add(btnDoi);
-            groupBox1.Controls.Add(btnVip);
             groupBox1.Controls.Add(pnlPreview);
             groupBox1.Location = new Point(18, 40);
             groupBox1.Name = "groupBox1";
@@ -96,25 +89,6 @@ namespace CK_AppKS
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin Phòng";
-            // 
-            // lblSoPhong
-            // 
-            lblSoPhong.AutoSize = true;
-            lblSoPhong.Location = new Point(26, 44);
-            lblSoPhong.Name = "lblSoPhong";
-            lblSoPhong.Size = new Size(72, 20);
-            lblSoPhong.TabIndex = 0;
-            lblSoPhong.Text = "Số Phòng";
-            lblSoPhong.Click += lblSoPhong_Click;
-            // 
-            // txtSoPhong
-            // 
-            txtSoPhong.Location = new Point(132, 37);
-            txtSoPhong.Name = "txtSoPhong";
-            txtSoPhong.PlaceholderText = "Nhập Số Phòng";
-            txtSoPhong.Size = new Size(250, 27);
-            txtSoPhong.TabIndex = 1;
-            txtSoPhong.TextChanged += txtSoPhong_TextChanged;
             // 
             // lblDonGia
             // 
@@ -137,43 +111,11 @@ namespace CK_AppKS
             // lblLoaiPhong
             // 
             lblLoaiPhong.AutoSize = true;
-            lblLoaiPhong.Location = new Point(26, 142);
+            lblLoaiPhong.Location = new Point(26, 52);
             lblLoaiPhong.Name = "lblLoaiPhong";
             lblLoaiPhong.Size = new Size(83, 20);
             lblLoaiPhong.TabIndex = 4;
             lblLoaiPhong.Text = "Loại Phòng";
-            // 
-            // btnDon
-            // 
-            btnDon.BackColor = Color.FromArgb(30, 120, 200);
-            btnDon.ForeColor = Color.White;
-            btnDon.Location = new Point(132, 133);
-            btnDon.Name = "btnDon";
-            btnDon.Size = new Size(72, 34);
-            btnDon.TabIndex = 5;
-            btnDon.Text = "Đơn";
-            btnDon.UseVisualStyleBackColor = false;
-            btnDon.Click += btnDon_Click;
-            // 
-            // btnDoi
-            // 
-            btnDoi.Location = new Point(212, 133);
-            btnDoi.Name = "btnDoi";
-            btnDoi.Size = new Size(72, 34);
-            btnDoi.TabIndex = 6;
-            btnDoi.Text = "Đôi";
-            btnDoi.UseVisualStyleBackColor = true;
-            btnDoi.Click += btnDoi_Click;
-            // 
-            // btnVip
-            // 
-            btnVip.Location = new Point(292, 133);
-            btnVip.Name = "btnVip";
-            btnVip.Size = new Size(72, 34);
-            btnVip.TabIndex = 7;
-            btnVip.Text = "Vip";
-            btnVip.UseVisualStyleBackColor = true;
-            btnVip.Click += btnVip_Click;
             // 
             // pnlPreview
             // 
@@ -208,7 +150,7 @@ namespace CK_AppKS
             // 
             // btnthem
             // 
-            btnthem.Location = new Point(44, 506);
+            btnthem.Location = new Point(44, 457);
             btnthem.Name = "btnthem";
             btnthem.Size = new Size(90, 47);
             btnthem.TabIndex = 1;
@@ -218,7 +160,7 @@ namespace CK_AppKS
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(142, 506);
+            btnSua.Location = new Point(140, 457);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(90, 47);
             btnSua.TabIndex = 2;
@@ -228,7 +170,7 @@ namespace CK_AppKS
             // 
             // btnxoa
             // 
-            btnxoa.Location = new Point(240, 506);
+            btnxoa.Location = new Point(236, 457);
             btnxoa.Name = "btnxoa";
             btnxoa.Size = new Size(90, 47);
             btnxoa.TabIndex = 3;
@@ -238,13 +180,21 @@ namespace CK_AppKS
             // 
             // btnMoi
             // 
-            btnMoi.Location = new Point(338, 506);
+            btnMoi.Location = new Point(332, 457);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(90, 47);
             btnMoi.TabIndex = 4;
             btnMoi.Text = "↺ Mới";
             btnMoi.UseVisualStyleBackColor = true;
             btnMoi.Click += btnMoi_Click;
+            // 
+            // txtLoaiPhong
+            // 
+            txtLoaiPhong.Location = new Point(132, 49);
+            txtLoaiPhong.Name = "txtLoaiPhong";
+            txtLoaiPhong.PlaceholderText = "Nhập Loại Phòng";
+            txtLoaiPhong.Size = new Size(250, 27);
+            txtLoaiPhong.TabIndex = 9;
             // 
             // UC_LOAIPHONG
             // 
@@ -286,5 +236,6 @@ namespace CK_AppKS
         private Button btnSua;
         private Button btnxoa;
         private Button btnMoi;
+        private TextBox txtLoaiPhong;
     }
 }
