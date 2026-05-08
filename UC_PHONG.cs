@@ -5,104 +5,60 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace CK_AppKS
 {
     public partial class UC_PHONG : UserControl
     {
-        // Chuỗi kết nối - Đã cập nhật theo SQL2025 của bạn
-        private string connectionString = @"Data Source=.\SQL2025;Initial Catalog=QLKS;Integrated Security=True";
-
         public UC_PHONG()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Sự kiện Load của UserControl: Tự động đổ dữ liệu khi vừa mở màn hình
-        /// </summary>
-        private void UC_PHONG_Load(object sender, EventArgs e)
+
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            DoTheVaoPhong();
+
         }
 
-        /// <summary>
-        /// Hàm lấy dữ liệu từ SQL và tạo các thẻ phòng (UC_THEPHONG) tương ứng
-        /// </summary>
+        private void flpDanhSach_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         public void DoTheVaoPhong()
         {
-            // 1. Xóa sạch danh sách cũ trong FlowLayoutPanel
             flpDanhSach.Controls.Clear();
 
-            // 2. Câu lệnh SQL JOIN để lấy tên Loại phòng, Trạng thái và Giá
-            string query = @"
-                SELECT P.SoPhong, L.LoaiPhong, P.TrangThai, L.DonGia
-                FROM PHONG P 
-                INNER JOIN LOAIPHONG L ON P.MaLoaiPhong = L.MaLoaiPhong
-                ORDER BY P.SoPhong ASC";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            for (int i = 1; i <= 20; i++)
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                UC_THEPHONG the = new UC_THEPHONG();
+                the.NapDuLieu("10" + i, (i % 2 != 0) ? "PHÒNG ĐƠN" : "PHÒNG ĐÔI", (i % 5 == 0));
+                the.Margin = new Padding(10);
+
+                // --- BẮT ĐẦU PHẦN QUAN TRỌNG ---
+                // 1. Gán sự kiện Click cho chính cái thẻ
+                the.Click += new EventHandler(ThePhong_Click);
+
+                // 2. Gán sự kiện Click cho tất cả các Label bên trong thẻ 
+                // (Để khi khách bấm trúng chữ "Phòng" hay "Giá" thì nó vẫn hiểu là đang bấm vào thẻ)
+                foreach (Control c in the.Controls)
                 {
-                    try
-                    {
-                        conn.Open();
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // Đọc dữ liệu từ từng dòng trong Database
-                                string soPhong = reader["SoPhong"].ToString();
-                                string loaiPhong = reader["LoaiPhong"].ToString();
-                                string trangThai = reader["TrangThai"].ToString();
-                                decimal donGia = Convert.ToDecimal(reader["DonGia"]);
-
-                                // Xác định trạng thái để đổi màu thẻ (Ví dụ: Đang thuê = true)
-                                bool isBusy = (trangThai == "Đang Thuê");
-
-                                // 3. Khởi tạo thẻ phòng (UserControl con)
-                                UC_THEPHONG the = new UC_THEPHONG();
-
-                                // Nạp dữ liệu vào thẻ qua hàm NapDuLieu của nó (bao gồm giá)
-                                the.NapDuLieu(soPhong, loaiPhong, isBusy, donGia);
-                                the.Margin = new Padding(12); // Khoảng cách giữa các thẻ
-
-                                // 4. Gán sự kiện Click cho thẻ
-                                the.Click += new EventHandler(ThePhong_Click);
-
-                                // Gán click cho tất cả các con bên trong thẻ (Label, PictureBox...) 
-                                // để bấm vào đâu cũng mở được Form nhập liệu
-                                foreach (Control c in the.Controls)
-                                {
-                                    c.Click += new EventHandler(ThePhong_Click);
-                                }
-
-                                // 5. Đưa thẻ vào khung hiển thị
-                                flpDanhSach.Controls.Add(the);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi nạp sơ đồ phòng: " + ex.Message, "Lỗi kết nối", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    c.Click += new EventHandler(ThePhong_Click);
                 }
+                // --- KẾT THÚC PHẦN QUAN TRỌNG ---
+
+                flpDanhSach.Controls.Add(the);
             }
         }
-
-        /// <summary>
-        /// Xử lý khi người dùng click vào một thẻ phòng bất kỳ
-        /// </summary>
-        private void ThePhong_Click(object sender, EventArgs e)
+        private void ThePhong_Click(object? sender, EventArgs e)
         {
             if (sender == null) return;
 
-            // Xác định chính xác thẻ UC_THEPHONG được bấm
             Control obj = (Control)sender;
-            UC_THEPHONG theGoc = null;
+            UC_THEPHONG? theGoc = null;
 
+            // Tìm thẻ gốc
             if (obj is UC_THEPHONG uc)
                 theGoc = uc;
             else if (obj.Parent is UC_THEPHONG parentUc)
@@ -110,29 +66,16 @@ namespace CK_AppKS
 
             if (theGoc != null)
             {
-                // Lấy số phòng từ Label trên thẻ (lblTenPhong hoặc lblSoPhong tùy bạn đặt tên)
-                string soPhong = theGoc.lblTenPhong.Text;
+                // Sử dụng tên chính xác bạn đã đặt cho Label
+                string tenPhong = theGoc.lblTenPhong.Text;
 
-                // Mở Form Nhập Liệu
+                // Đảm bảo FormNhapLieu là một FORM, không phải User Control
                 using (FormNhapLieu f = new FormNhapLieu())
                 {
-                    f.Text = "Quản lý Phòng: " + soPhong;
-
-                    // Truyền số phòng cho Form để nó load dữ liệu
-                    f.SelectedRoom = soPhong;
-
-                    f.StartPosition = FormStartPosition.CenterParent;
+                    f.Text = "Cập nhật cho " + tenPhong;
                     f.ShowDialog();
-
-                    // QUAN TRỌNG: Sau khi đóng Form nhập liệu (có thể trạng thái phòng đã đổi),
-                    // ta load lại toàn bộ sơ đồ phòng để cập nhật màu sắc mới.
-                    DoTheVaoPhong();
                 }
             }
         }
-
-        // Các sự kiện trống bạn có thể xóa nếu không dùng
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
-        private void flpDanhSach_Paint(object sender, PaintEventArgs e) { }
     }
 }
