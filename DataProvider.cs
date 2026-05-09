@@ -4,10 +4,12 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Data;
 
-/// <summary>
-/// Summary description for DBClass
-/// </summary>
-public class DataProvider
+namespace CK_AppKS
+{
+    /// <summary>
+    /// Summary description for DBClass
+    /// </summary>
+    public class DataProvider
 {
     public static string ChuoiKetNoi
     {
@@ -76,6 +78,7 @@ public class DataProvider
         sqlcon.Close();
         return kq;
     }
+}
     public static DataSet SelectMultiData(string sql)
     {
         DataSet kq = new DataSet();

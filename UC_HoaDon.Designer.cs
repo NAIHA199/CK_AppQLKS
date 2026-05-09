@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace CK_AppQLKS
+namespace CK_AppKS
 {
     public partial class UC_HoaDon : UserControl
     {

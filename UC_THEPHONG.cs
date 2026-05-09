@@ -15,33 +15,29 @@ namespace CK_AppKS
             InitializeComponent();
         }
 
-        // Hàm này giúp thẻ tự thay đổi nội dung khi được gọi
-<<<<<<< HEAD
+        // Hàm này giúp th? t? thay d?i n?i dung khi du?c g?i
         public void NapDuLieu(string soPhong, string loai, bool coKhach, decimal donGia = 0)
-=======
-        public void NapDuLieu(string soPhong, string loai, bool coKhach, long donGia)
->>>>>>> c9bff521439d45bff93cbe33f1b602a63b839a83
         {
             lblTenPhong.Text = "Phòng: " + soPhong;
-            lblLoaiPhong.Text = "Loại: " + loai;
+            lblLoaiPhong.Text = "Lo?i: " + loai;
 
-            // Nếu có giá từ database, sử dụng giá đó. Nếu không thì dùng giá mặc định
+            // N?u có giá t? database, s? d?ng giá dó. N?u không thì dùng giá m?c d?nh
             if (donGia > 0)
                 lblGia.Text = "Giá: " + donGia.ToString("N0");
             else
                 lblGia.Text = "Giá: 200.000";
 
-            // Thay đổi màu sắc dựa trên trạng thái
+            // Thay d?i màu s?c d?a trên tr?ng thái
             if (coKhach)
             {
-                lblTrangThai.Text = "Đang Thuê";
-                lblTrangThai.BackColor = Color.Red; // Đỏ cho dễ nhận biết
+                lblTrangThai.Text = "Ðang Thuê";
+                lblTrangThai.BackColor = Color.Red; // Ð? cho d? nh?n bi?t
                 lblTrangThai.ForeColor = Color.White;
             }
             else
             {
-                lblTrangThai.Text = "Trống";
-                lblTrangThai.BackColor = Color.Lime; 
+                lblTrangThai.Text = "Tr?ng";
+                lblTrangThai.BackColor = Color.Lime;
                 lblTrangThai.ForeColor = Color.Black;
             }
         }

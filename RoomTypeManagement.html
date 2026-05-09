@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Loại Phòng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8e8e8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #e8e8e8;
+        }
+
+        .form-section {
+            background-color: #e8e8e8;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .form-group label {
+            min-width: 100px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-group button {
+            padding: 6px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0052a3;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #000;
+            border: 1px solid #ccc;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .summary-section {
+            background-color: #d4e9f7;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-section span:first-child {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .summary-section span:last-child {
+            font-weight: bold;
+            color: #0066cc;
+            font-size: 18px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .action-buttons button {
+            padding: 8px 20px;
+            border: 1px solid #999;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .action-buttons button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .table-section {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        table thead {
+            background-color: #d4e9f7;
+        }
+
+        table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            color: #000;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .action-cell {
+            display: flex;
+            gap: 5px;
+        }
+
+        .action-cell button {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-edit {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="number"],
+            .form-group select {
+                width: 100%;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <div class="form-title">Thông Tin Phòng</div>
+
+            <div class="form-group">
+                <label>Số Phòng</label>
+                <input type="text" placeholder="Nhập Số Phòng" id="soPhong">
+            </div>
+
+            <div class="form-group">
+                <label>Đơn Giá</label>
+                <input type="number" placeholder="Nhập Đơn Giá" id="donGia" min="0">
+            </div>
+
+            <div class="form-group">
+                <label>Loại Phòng</label>
+                <select id="loaiPhong">
+                    <option value="">-- Chọn Loại Phòng --</option>
+                    <option value="phong-don">Phòng Đơn</option>
+                    <option value="phong-doi">Phòng Đôi</option>
+                    <option value="phong-tap-the">Phòng Tập Thể</option>
+                    <option value="phong-vip">Phòng VIP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Trạng Thái</label>
+                <div class="button-group">
+                    <button class="btn-primary" data-status="trong">Trống</button>
+                    <button class="btn-secondary" data-status="dang">Đang</button>
+                    <button class="btn-secondary" data-status="dang-don">Đang Dọn</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ghi Chú</label>
+                <input type="text" placeholder="Nhập ghi chú" id="ghiChu">
+            </div>
+
+            <!-- Summary Section -->
+            <div class="summary-section">
+                <span>Tham khảo</span>
+                <span>0 đ</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button>+ Thêm</button>
+            <button>Sửa</button>
+            <button>Xóa</button>
+            <button>Ở Mới</button>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SỐ PHÒNG</th>
+                        <th>LOẠI PHÒNG</th>
+                        <th>TRẠNG THÁI</th>
+                        <th>ĐƠN GIÁ</th>
+                        <th>GHI CHÚ</th>
+                        <th>HÀNH ĐỘNG</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let rooms = [];
+        let currentStatus = 'trong';
+
+        // Set status button active
+        document.querySelectorAll('.button-group button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.button-group button').forEach(b => {
+                    b.classList.remove('btn-primary');
+                    b.classList.add('btn-secondary');
+                });
+                this.classList.remove('btn-secondary');
+                this.classList.add('btn-primary');
+                currentStatus = this.dataset.status;
+            });
+        });
+
+        // Add room button
+        document.querySelector('.action-buttons button:nth-child(1)').addEventListener('click', addRoom);
+
+        function addRoom() {
+            const soPhong = document.getElementById('soPhong').value;
+            const donGia = document.getElementById('donGia').value;
+            const loaiPhong = document.getElementById('loaiPhong').value;
+            const ghiChu = document.getElementById('ghiChu').value;
+
+            if (!soPhong || !donGia || !loaiPhong) {
+                alert('Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+
+            const room = {
+                id: Date.now(),
+                soPhong,
+                donGia,
+                loaiPhong,
+                ghiChu,
+                trangThai: currentStatus
+            };
+
+            rooms.push(room);
+            renderTable();
+            clearForm();
+        }
+
+        function renderTable() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            rooms.forEach((room, index) => {
+                const row = document.createElement('tr');
+                const statusText = getStatusText(room.trangThai);
+
+                row.innerHTML = `
+                    <td>${room.soPhong}</td>
+                    <td>${getLoaiPhongText(room.loaiPhong)}</td>
+                    <td>${statusText}</td>
+                    <td>${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(room.donGia)}</td>
+                    <td>${room.ghiChu}</td>
+                    <td class="action-cell">
+                        <button class="btn-edit" onclick="editRoom(${index})">Sửa</button>
+                        <button class="btn-delete" onclick="deleteRoom(${index})">Xóa</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'trong': 'Trống',
+                'dang': 'Đang',
+                'dang-don': 'Đang Dọn'
+            };
+            return statusMap[status] || status;
+        }
+
+        function getLoaiPhongText(loai) {
+            const loaiMap = {
+                'phong-don': 'Phòng Đơn',
+                'phong-doi': 'Phòng Đôi',
+                'phong-tap-the': 'Phòng Tập Thể',
+                'phong-vip': 'Phòng VIP'
+            };
+            return loaiMap[loai] || loai;
+        }
+
+        function deleteRoom(index) {
+            if (confirm('Bạn có chắc muốn xóa phòng này?')) {
+                rooms.splice(index, 1);
+                renderTable();
+            }
+        }
+
+        function editRoom(index) {
+            const room = rooms[index];
+            document.getElementById('soPhong').value = room.soPhong;
+            document.getElementById('donGia').value = room.donGia;
+            document.getElementById('loaiPhong').value = room.loaiPhong;
+            document.getElementById('ghiChu').value = room.ghiChu;
+
+            // Set status
+            document.querySelectorAll('.button-group button').forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-secondary');
+            });
+            document.querySelector(`[data-status="${room.trangThai}"]`).classList.add('btn-primary');
+            currentStatus = room.trangThai;
+
+            // Delete old record and let user re-add
+            rooms.splice(index, 1);
+            renderTable();
+        }
+
+        function clearForm() {
+            document.getElementById('soPhong').value = '';
+            document.getElementById('donGia').value = '';
+            document.getElementById('loaiPhong').value = '';
+            document.getElementById('ghiChu').value = '';
+
+            document.querySelectorAll('.button-group button').forEach(b => {
+                b.classList.remove('btn-primary');
+                b.classList.add('btn-secondary');
+            });
+            document.querySelector('[data-status="trong"]').classList.add('btn-primary');
+            currentStatus = 'trong';
+        }
+
+        // Initialize
+        clearForm();
+    </script>
+</body>
+</html>
